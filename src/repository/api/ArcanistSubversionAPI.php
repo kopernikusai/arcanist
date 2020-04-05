@@ -199,7 +199,7 @@ final class ArcanistSubversionAPI extends ArcanistRepositoryAPI {
 
   public function getSVNProperty($path, $property) {
     list($stdout) = execx(
-      'svn propget %s %s@',
+      'svn propget %s %s@; exit 0',
       $property,
       $this->getPath($path));
     return trim($stdout);
